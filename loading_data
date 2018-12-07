@@ -1,5 +1,47 @@
+#!/usr/bin/env python3
+
 '''4) Write the code to load the data into the database. (2pts) Note this is only 2 points! 
 Don't spend a ton of time on this. If it turns into a headache, don't worry about it.'''
 
 
+conn = engine.connect()
 
+dropout_rates = open("DropoutRatesSchool1415.csv")
+
+dropout_reader = csv.DictReader(dropout_rates)
+
+# Loading data into Alachua_Dropout_Rates table
+for Line in dropout_reader:
+  if Line[District Name] == 'ALACHUA':
+    insert_alachua = Alachua_Dropout_Rates.insert().values(School_# = (Line['Sch #']),
+                            White_Drop_out_Rate_(%) = (Line['White Dropout Rate']),
+                            Black_Drop_out_Rate_(%)= (Line['Black Dropout Rate'],
+                            Hispanic_Drop_out_Rate_(%)= (Line['Hispanic Dropout Rate'],
+                            Asian_Drop_out_Rate_(%)= (Line['Asian Dropout Rate'],
+                            PacificIslander_Drop_out_Rate_(%)= (Line['Pacific Islander Dropout Rate'],
+                            AmericanIndian_Drop_out_Rate_(%)= (Line['American Indian Dropout Rate'],
+                            MixedRace_Drop_out_Rate_(%)= (Line['Two or More Races Dropout Rate'],
+                            Total_Drop_out_Rate_(%)= (Line['Total Dropout Rate']                            
+                            )
+
+    table1 = conn.execute(insert_alachua)
+
+
+  if Line==2: #we are checking to only insert the Florida state row, which is line 2 in the file
+  
+# Loading data into Total_Dropout_Rates table
+    insert_total = Total_Dropout_Rates.insert().values(ID = ( autoincrement= True), primary_key= True,
+                            Total_White_Drop_out_Rate_(%) = (Line['White Dropout Rate']),
+                            Total_Black_Drop_out_Rate_(%)= (Line['Black Dropout Rate'],
+                            Total_Hispanic_Drop_out_Rate_(%)= (Line['Hispanic Dropout Rate'],
+                            Total_Asian_Drop_out_Rate_(%)= (Line['Asian Dropout Rate'],
+                            Total_PacificIslander_Drop_out_Rate_(%)= (Line['Pacific Islander Dropout Rate'],
+                            Total_AmericanIndian_Drop_out_Rate_(%)= (Line['American Indian Dropout Rate'],
+                            Total_MixedRace_Drop_out_Rate_(%)= (Line['Two or More Races Dropout Rate'],
+                            Total_Drop_out_Rate_(%)= (Line['Total Dropout Rate']    
+                                            )
+  table2 = conn.execute(insert_total)
+  
+  
+  #now we've created the two tables; the next step is to calculate the average value for each respective ethicity dropout rate in Alachue
+  #then import this data into the Total_Dropout_Rates
