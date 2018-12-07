@@ -1,0 +1,45 @@
+"""Normalize the data. Write descriptions (words, drawings, or tables are fine--not code at this point) of 
+the tables you could use to normalize these data. Describe why you chose the normalize the data in this manner. 
+Include the column names, data types for each column, primary and foreign keys you would use. (8pts.)"""
+
+
+I want to create two tables; one with our district, alachua county, and the dropout rates for the different ethnicities. 
+So, the rows will all be schools from alachua county, the school number will be the primary key/ how the data is identified.
+Table one will be called "Alachua County Dropout Rates" ; it will have the dropout rates by ethnicity based on different schools
+The columns will be:
+1) School # - this will identify the school by number code, an int
+2) White Drop out Rate (%)- float 
+3) Black Drop out Rate (%)- float 
+4) Hispanic Drop out Rate (%) - float 
+5) Asian Drop out Rate (%)- float 
+6) Pacific islander Drop out Rate (%)- float 
+7) American Indian Drop out Rate (%) - float 
+8) Mixed race Drop out Rate (%)- (this is the 2 or more races column from the original data), float
+9) Total drop out rate (%) - float 
+
+All the data types for the columns after column 1 will be floats, as they are decimal percentages. The original data in these columns appears with a percentage sign but we 
+will strip the data of this symbol to make it less complicated, and just include (%) in column headings to make it clear. 
+This can be done on bash using: tr -d '%' < DropoutRatesSchool1415.csv > DropoutsClean.csv
+
+I chose to normalize the data in this way because it would be interesting to see the schools in alachua (our) county, and their respective drop out rates
+Having a table with just schools by code and ethnic dropout rates is useful because we could now get an average rate for each ethnicity by just getting the average for each column.
+We could then have a second column with the average dropout rate for Florida the state, which is the first row in our original data and import alachua county's drop out rate and see how they compare for each ethnicity, 
+as well as for total dropout rate. 
+
+Hence, our second column, "Total Dropout Rates", will have  foreign keys from table 1, when we are referencing its values
+
+It will have two rows; row one will be the Florida state values, and row two will be the alachua values. Hypothetically, one could
+write a program that would do this for all the different countys and import the data into this table to compare the values.
+
+1) County or State - this will identify the county or state, and it will be a string
+2) White Drop out Rate (%)- float 
+3) Black Drop out Rate (%)- float 
+4) Hispanic Drop out Rate (%) - float 
+5) Asian Drop out Rate (%)- float 
+6) Pacific islander Drop out Rate (%)- float 
+7) American Indian Drop out Rate (%) - float 
+8) Mixed race Drop out Rate (%)- (this is the 2 or more races column from the original data), float
+9) Total drop out rate (%) - float 
+
+Then we will import into this data the following foreign keys:
+
