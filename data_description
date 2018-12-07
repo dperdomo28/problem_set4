@@ -39,6 +39,7 @@
  
  
  **There doesn't appear to be any conflicts or issues with accessing data from the csv file; for conveniece the first 4 lines which describe the data were removed so that only columns remain
+ The first 4 lines were removed in bash using : sed -i 1,4d DropoutRatesSchool1415.csv
  In the data values appear as ints or strings for names, and sometimes * for missing data or n/a for missing rates. 
  Columns are separated by ;
  The values in each row are for a particular school. 
