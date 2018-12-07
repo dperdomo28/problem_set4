@@ -30,6 +30,7 @@ Hence, our second column, "Total Dropout Rates", will have  foreign keys from ta
 
 It will have two rows; row one will be the Florida state values, and row two will be the alachua values. Hypothetically, one could
 write a program that would do this for all the different countys and import the data into this table to compare the values.
+there will also be a primary key called ID that will just be autoincremebted. 
 
 1) County or State - this will identify the county or state, and it will be a string
 2) Total White Drop out Rate (%)- float 
