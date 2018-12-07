@@ -32,14 +32,28 @@ It will have two rows; row one will be the Florida state values, and row two wil
 write a program that would do this for all the different countys and import the data into this table to compare the values.
 
 1) County or State - this will identify the county or state, and it will be a string
-2) White Drop out Rate (%)- float 
-3) Black Drop out Rate (%)- float 
-4) Hispanic Drop out Rate (%) - float 
-5) Asian Drop out Rate (%)- float 
-6) Pacific islander Drop out Rate (%)- float 
-7) American Indian Drop out Rate (%) - float 
-8) Mixed race Drop out Rate (%)- (this is the 2 or more races column from the original data), float
+2) Total White Drop out Rate (%)- float 
+3) Total Black Drop out Rate (%)- float 
+4) Total Hispanic Drop out Rate (%) - float 
+5) Total Asian Drop out Rate (%)- float 
+6) Total Pacific islander Drop out Rate (%)- float 
+7) Total American Indian Drop out Rate (%) - float 
+8) Total Mixed race Drop out Rate (%)- (this is the 2 or more races column from the original data), float
 9) Total drop out rate (%) - float 
 
 Then we will import into this data the following foreign keys:
 
+into columns 1-9 respectively:
+1. Alachua - string, this can just be written in 
+2. foreign key avg(sum of column 2 values from table 1 / number of rows) - int
+3. foreign key avg(sum of column 3 values from table 1 / number of rows)- int
+4. foreign key avg(sum of column 4 values from table 1 / number of rows)- int
+5. foreign key avg(sum of column 5 values from table 1 / number of rows)- int
+6. foreign key avg(sum of column 6 values from table 1 / number of rows)- int
+7. foreign key avg(sum of column 7 values from table 1 / number of rows)- int
+8. foreign key avg(sum of column 8 values from table 1 / number of rows)- int
+9. foreign key avg(sum of column 9 values from table 1 / number of rows)- int
+
+The most complicated part here I think will be writing the code for calculating the avergae and summing up the values, other stuff seems pretty straightforward. 
+
+After this is done we can compare the average dropout rates for alachua county by race and see if we do better or worse than the state figures!
