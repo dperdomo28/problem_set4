@@ -12,35 +12,39 @@ engine = create_engine('sqlite:///DropoutRatesSchool1415.csv')
 metadata = MetaData(engine)
 
 # Creating table 1 which has the different dropour rates per ethnicity for each recorded school in alachua county
-
-    Alachua_Dropout_Rates = Table ('Alachua_Dropout_Rates', metadata,
-                Column('School_#', Integer), primary_key= True
-                Column('White_Drop_out_Rate_(%)', Float),
-                Column('Black_Drop_out_Rate_(%)', Float),
-                Column('Hispanic_Drop_out_Rate_(%)', Float),
-                Column('Asian_Drop_out_Rate_(%)', Float),
-                Column('Asian_Drop_out_Rate_(%)', Float),
-                Column('PacificIslander_Drop_out_Rate_(%)', Float),
-                Column('AmericanIndian_Drop_out_Rate_(%)', Float),
-                Column('MixedRace_Drop_out_Rate_(%)', Float),
-                Column('Total_Drop_out_Rate_(%)', Float),
-               )
+    try:
+        Alachua_Dropout_Rates = Table ('Alachua_Dropout_Rates', metadata, autoload= True)
+    except:
+        Alachua_Dropout_Rates = Table ('Alachua_Dropout_Rates', metadata,
+                    Column('School_#', Integer), primary_key= True
+                    Column('White_Drop_out_Rate_(%)', Float),
+                    Column('Black_Drop_out_Rate_(%)', Float),
+                    Column('Hispanic_Drop_out_Rate_(%)', Float),
+                    Column('Asian_Drop_out_Rate_(%)', Float),
+                    Column('Asian_Drop_out_Rate_(%)', Float),
+                    Column('PacificIslander_Drop_out_Rate_(%)', Float),
+                    Column('AmericanIndian_Drop_out_Rate_(%)', Float),
+                    Column('MixedRace_Drop_out_Rate_(%)', Float),
+                    Column('Total_Drop_out_Rate_(%)', Float),
+                    )
 
 # Creating Total_Dropout_Rates table; this will have an autoincremented value be its primary key.
-
-    Total_Dropout_Rates = Table ('Total_Dropout_Rates', metadata,
-                Column('ID', Integer, autoincrement= True), primary_key= True
-                Column('County_or_State', String),
-                Column('Total_White_Drop_out_Rate_(%)', Float),
-                Column('Total_Black_Drop_out_Rate_(%)', Float),
-                Column('Total_Hispanic_Drop_out_Rate_(%)', Float),
-                Column('Total_Asian_Drop_out_Rate_(%)', Float),
-                Column('Total_Asian_Drop_out_Rate_(%)', Float),
-                Column('Total_PacificIslander_Drop_out_Rate_(%)', Float),
-                Column('Total_AmericanIndian_Drop_out_Rate_(%)', Float),
-                Column('Total_MixedRace_Drop_out_Rate_(%)', Float),
-                Column('Total_Drop_out_Rate_(%)', Float),
-               )
+    try:
+        Total_Dropout_Rates = Table ('Total_Dropout_Rates', metadata, autoload= True)
+    except:
+        Total_Dropout_Rates = Table ('Total_Dropout_Rates', metadata,
+                    Column('ID', Integer, autoincrement= True), primary_key= True
+                    Column('County_or_State', String),
+                    Column('Total_White_Drop_out_Rate_(%)', Float),
+                    Column('Total_Black_Drop_out_Rate_(%)', Float),
+                    Column('Total_Hispanic_Drop_out_Rate_(%)', Float),
+                    Column('Total_Asian_Drop_out_Rate_(%)', Float),
+                    Column('Total_Asian_Drop_out_Rate_(%)', Float),
+                    Column('Total_PacificIslander_Drop_out_Rate_(%)', Float),
+                    Column('Total_AmericanIndian_Drop_out_Rate_(%)', Float),
+                    Column('Total_MixedRace_Drop_out_Rate_(%)', Float),
+                    Column('Total_Drop_out_Rate_(%)', Float),
+                    )
 
 
 metadata.create_all(engine)
