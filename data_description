@@ -1,0 +1,50 @@
+ Information about the DropoutRatesSchool1415.csv
+ 
+ The data was obtained from the Common Core of Data: http://www.fldoe.org/core/fileparse.php/7584/urlt/DropoutRatesSchool1415.xls. 
+ The data is from 2014-2015 and this was the last year of collection.
+ The data consists of dropout rates by ethnicity and districts in Florida.
+ 
+ The columns in the dataset are in the table below. In the file columns are separated by ;
+ 
+ Column Header | Description
+ 
+ Dist #  | District Number; int
+ District Name | District Name; the first is Florida and it gives a total count of values in respective columns
+ Sch # | int
+ School Name | Contains spaces, string
+ White Dropouts (numerator) | Whole number int; number of students
+ White Enrollment (denominator) | Whole number int, some rows have '*' when there is no data
+ White Dropout Rate | given as a percetage; some rows have N/A
+ Black Dropouts (numerator) | int
+ Black Enrollment (denominator) | int
+ Black Dropout Rate | percentage
+ Hispanic Dropouts (numerator) | int
+ Hispanic Enrollment (denominator)	| int
+ Hispanic Dropout Rate	| percentage
+ Asian Dropouts (numerator)	| int
+ Asian Enrollment (denominator)	| int
+ Asian Dropout Rate	| percentage
+ Pacific Islander Dropouts (numerator)	| int
+ Pacific Islander Enrollment (denominator) | int
+ Pacific Islander Dropout Rate	| percentage
+ American Indian Dropouts (numerator)	| int
+ American Indian Enrollment (denominator)	| int
+ American Indian Dropout Rate	| percentage
+ Two or More Races Dropouts (numerator)	| int
+ Two or More Races Enrollment (denominator)	| int
+ Two or More Races Dropout Rate	| percentage
+ Total Dropouts (numerator)	| int
+ Total Enrollment (denominator)	| int
+ Total Dropout Rate | percentage
+ 
+ 
+ **There doesn't appear to be any conflicts or issues with accessing data from the csv file; for conveniece the first 4 lines which describe the data were removed so that only columns remain
+ In the data values appear as ints or strings for names, and sometimes * for missing data or n/a for missing rates. 
+ Columns are separated by ;
+ The values in each row are for a particular school. 
+
+
+  
+ 
+ 
+ 
